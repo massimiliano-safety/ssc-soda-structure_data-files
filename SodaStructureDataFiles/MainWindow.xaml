@@ -1,0 +1,49 @@
+﻿<Window x:Class="SodaStructureDataFiles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SodaStructureDataFiles"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="820" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Source" HorizontalAlignment="Left" Margin="50,7,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="50,34,0,0" Width="683" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBlock x:Name="txt_source" TextWrapping="Wrap" Text="{Binding Source, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Border>
+        <Button x:Name="btn_path_source" Content="..." HorizontalAlignment="Left" Margin="751,36,0,0" VerticalAlignment="Top" Width="35" Height="36" Click="btn_path_source_Click"/>
+
+
+        <Label Content="Destination" HorizontalAlignment="Left" Height="30" Margin="50,100,0,0" VerticalAlignment="Top" Width="80"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="50,130,0,0" Width="683" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.RowSpan="2">
+            <TextBlock x:Name="txt_destination" TextWrapping="Wrap" Text="{Binding Destination, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Border>
+        <Button  x:Name="btn_path_destination" Content="..." HorizontalAlignment="Left" Margin="751,132,0,0" VerticalAlignment="Top" Width="35" Height="36" Click="btn_path_destination_Click" RenderTransformOrigin="0.716,-0.063" Grid.RowSpan="2"/>
+
+
+        <Button x:Name="btn_start" Visibility="{Binding Start, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="START" HorizontalAlignment="Left" Margin="680,70,0,0" VerticalAlignment="Top" Width="106" Height="34" Click="btn_start_Click" Grid.Row="1" />
+        <Button x:Name="btn_stop"  Visibility="{Binding Stop, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="STOP" HorizontalAlignment="Left"  Margin="680,70,0,0" VerticalAlignment="Top" Width="106" Height="34" Click="btn_stop_Click" Grid.Row="1"  />
+        <Button x:Name="btn_save"  Content="SAVE" HorizontalAlignment="Left"  Margin="300,70,0,0" VerticalAlignment="Top" Width="106" Height="34"  Grid.Row="1" Click="btn_save_Click"  />
+
+        <!--<local:UC_StatusBar x:Name="uc_status_bar" HorizontalAlignment="Center" Margin="0,341,0,0" VerticalAlignment="Top" Height="76"/>-->
+        <Label x:Name="lbl_progress" Content="Progress (%)" HorizontalAlignment="Left" Height="30" Margin="50,150,0,0" VerticalAlignment="Top" Width="80" Grid.Row="1"/>
+        <Label x:Name="lbl_progress_value" Content="{Binding Progress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="30" Margin="130,150,0,0" VerticalAlignment="Top" Width="56" Grid.Row="1"/>
+
+        <Label x:Name="lbl_text_source" Content="Status" HorizontalAlignment="Left" Height="30" Margin="50,186,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Label x:Name="lbl_text_source_value" Content="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="30" Margin="130,185,0,0" VerticalAlignment="Top" Width="637" Grid.Row="1"/>
+
+        <!--<Label x:Name="lbl_text_destination" Content="to" HorizontalAlignment="Left" Height="30" Margin="50,220,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Label x:Name="lbl_text_destination_value" Content="" HorizontalAlignment="Left" Height="30" Margin="130,220,0,0" VerticalAlignment="Top" Width="637" Grid.Row="1"/>-->
+
+        <Label x:Name="lbl_update_date" Content="update until this date (empty until now)" HorizontalAlignment="Left" Height="30" Margin="50,41,0,0" VerticalAlignment="Top" Width="230" Grid.Row="1"/>
+        <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Left" Height="34" Margin="50,70,0,0" Width="186" Grid.Row="1" >
+            <DatePicker x:Name="dpk_update_date" SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontStretch="Expanded" BorderBrush="Transparent" BorderThickness="0"/>
+        </Viewbox>
+
+    </Grid>
+</Window>
